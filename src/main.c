@@ -60,9 +60,34 @@ int main(int argc, char* argv[]) {
     InitWindow(WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT, "Logically (Logic Game)");
     SetTargetFPS(WINDOW_TARGET_FPS);
 
+    //lg_log("Started");
+
+    lg_rand_seed();
+
     while(!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(lg_get_color("BACKGROUND"));
+
+        Rectangle rect = {
+            .x = 10,
+            .y = 10,
+            .width = 500,
+            .height = 250
+        };
+
+        Vector2 cursor = GetMousePosition();
+        rect.x += cursor.x;
+        rect.y += cursor.y;
+
+        DrawRectangle(rect.x, rect.y, rect.width, rect.height, WHITE);
+        lg_draw_text_center("Center", rect, 25, BLACK);
+        lg_draw_text_center_offset("Top", rect, (Vector2){ .x = 0, .y = -50 }, 17, BLACK);
+        lg_draw_text_center_offset("Left", rect, (Vector2){ .x = -100, .y = 0 }, 17, BLACK);
+        lg_draw_text_center_offset("Bottom", rect, (Vector2){ .x = 0, .y = 50 }, 17, BLACK);
+        lg_draw_text_center_offset("Right", rect, (Vector2){ .x = 100, .y = 0 }, 17, BLACK);
+
+        DrawLine(rect.x, rect.y, rect.x + rect.width, rect.y + rect.height, RED);
+        DrawLine(rect.x + rect.width, rect.y, rect.x, rect.y + rect.height, RED);
 
         EndDrawing();
     }

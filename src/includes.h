@@ -12,3 +12,4 @@
 #include "gui.h"
 #include "definitions.h"
 #include "gui/colors.h"
+#include "debug.h"
