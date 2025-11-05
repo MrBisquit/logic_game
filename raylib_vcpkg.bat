@@ -1,5 +1,5 @@
 @echo off
 
 cd vcpkg
-vcpkg.exe install raylib
+.\vcpkg.exe install raylib
 cd ..
