@@ -3,4 +3,4 @@
 cd build
 cmake --build . --config Release
 cd ..
-"build/Release/bsbot.exe"
+"build/Release/logic_game.exe"

@@ -15,7 +15,18 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
-add_executable(logic_game src/main.c)
+# target_include_directories(logic_game PRIVATE src)
+#set(SOURCES src/main.c src/includes.h src/definitions.h src/includes.h src/gui/color.c)
+
+#add_executable(logic_game ${SOURCES})
+#target_link_libraries(logic_game raylib)
+
+file(GLOB_RECURSE SRC_FILES
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
+)
+
+add_executable(logic_game ${SRC_FILES})
 target_link_libraries(logic_game raylib)
 
 set_target_properties(logic_game PROPERTIES LINK_SEARCH_START_STATIC ON)

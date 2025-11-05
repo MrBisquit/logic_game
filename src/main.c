@@ -57,5 +57,16 @@
 /// @param argv Arguments
 /// @return Return code
 int main(int argc, char* argv[]) {
+    InitWindow(WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT, "Logically (Logic Game)");
+    SetTargetFPS(WINDOW_TARGET_FPS);
 
+    while(!WindowShouldClose()) {
+        BeginDrawing();
+        ClearBackground(lg_get_color("BACKGROUND"));
+
+        EndDrawing();
+    }
+
+    CloseWindow();
+    return 0;
 }
