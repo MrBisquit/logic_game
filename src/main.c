@@ -52,6 +52,8 @@
 
 #include "includes.h"
 
+THEME lg_theme = THEME_DARK;
+
 /// @brief Program entry point
 /// @param argc Argument count
 /// @param argv Arguments
@@ -67,6 +69,13 @@ int main(int argc, char* argv[]) {
     while(!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(lg_get_color("BACKGROUND"));
+
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+            if(lg_theme == THEME_DARK)
+                lg_theme = THEME_LIGHT;
+            else
+                lg_theme = THEME_DARK;
+        }
 
         Rectangle rect = {
             .x = 10,
@@ -88,6 +97,17 @@ int main(int argc, char* argv[]) {
 
         DrawLine(rect.x, rect.y, rect.x + rect.width, rect.y + rect.height, RED);
         DrawLine(rect.x + rect.width, rect.y, rect.x, rect.y + rect.height, RED);
+
+        RoundRectangle button_rect = {
+            10,
+            10,
+            100,
+            40,
+            0
+        };
+
+        lg_button_t button = lg_generate_button(button_rect, lg_generate_text("Test", 15));
+        lg_draw_button(button, false);
 
         EndDrawing();
     }

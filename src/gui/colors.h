@@ -5,7 +5,7 @@
 #define COLORS_BACKGROUND_LIGHT { .r = 227, .g = 227, .b = 227, .a = 255 }
 #define COLORS_BACKGROUND_DARK  { .r = 23,  .g = 23,  .b = 23,  .a = 255 }
 
-static const ThemeColor lg_theme_colors[5] = {
+static const ThemeColor lg_theme_colors[6] = {
     {
         "BACKGROUND",
         { .r = 227, .g = 227, .b = 227, .a = 255 }, // #E3E3E3 (0xE3E3E3)
@@ -32,5 +32,10 @@ static const ThemeColor lg_theme_colors[5] = {
         "BUTTON_CLICKED",
         { .r = 80,  .g = 80,  .b = 80,  .a = 240 }, // #505050 (0x505050)
         { .r = 180, .g = 180, .b = 180, .a = 240 }  // #B4B4B4 (0xB4B4B4)
+    },
+    {
+        "BUTTON_DISABLED",
+        { .r = 80,  .g = 80,  .b = 80,  .a = 80 }, // #505050 (0x505050)
+        { .r = 180, .g = 180, .b = 180, .a = 80 }  // #B4B4B4 (0xB4B4B4)
     }
 };

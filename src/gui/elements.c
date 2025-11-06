@@ -41,3 +41,39 @@ void lg_draw_text_center_offset(const char* text, Rectangle rect, Vector2 offset
 
     lg_draw_text(text, x, y, fontSize, color);
 }
+
+void lg_draw_rectangle_round(RoundRectangle rect, Color color) {
+    DrawRectangleRounded(lg_round_to_rect(rect), rect.rounded, 4 + (4 * rect.rounded), color);
+}
+
+void lg_draw_rectangle_round_outline(RoundRectangle rect, Color color) {
+    DrawRectangleRoundedLines(lg_round_to_rect(rect), rect.rounded, 4 + (4 * rect.rounded), color);
+}
+
+/// @brief Draws a button
+/// @param button The button to draw
+/// @param blocked Whether input is blocked (Overrides states)
+void lg_draw_button(lg_button_t button, bool blocked) {
+    Vector2 cursor = GetMousePosition();
+    Rectangle rect = lg_round_to_rect(button.rect);
+
+    if(blocked) goto normal;
+
+    if(!button.enabled) {
+        lg_draw_rectangle_round(button.rect, button.disabled);
+    } else if(lg_point_in_rect(cursor, rect)) {
+        if(IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+            lg_draw_rectangle_round(button.rect, button.clicked);
+            goto end;
+        }
+        lg_draw_rectangle_round(button.rect, button.hover);
+        goto end;
+    } else {
+        normal:
+        lg_draw_rectangle_round(button.rect, button.normal);
+        goto end;
+    }
+
+    end:
+    lg_draw_text_center(button.text.text, rect, button.text.fontSize, button.text.color);
+}

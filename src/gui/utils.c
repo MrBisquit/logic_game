@@ -47,3 +47,17 @@ bool lg_point_in_rect(Vector2 point, Rectangle rect) {
 
     return px >= x1 && px <= x2 && py >= y1 && py <= y2;
 }
+
+/// @brief Converts a `RoundRectangle` to a `Rectangle`
+/// @param rect The round rectangle
+/// @return The normal rectangle
+Rectangle lg_round_to_rect(RoundRectangle rect) {
+    Rectangle _rect = {
+        rect.x,
+        rect.y,
+        rect.width,
+        rect.height
+    };
+
+    return _rect;
+}

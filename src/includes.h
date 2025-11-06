@@ -9,7 +9,8 @@
 #include <time.h>
 #include <raylib.h>
 
+#include "globals.h"
 #include "gui.h"
 #include "definitions.h"
 #include "gui/colors.h"
-#include "debug.h"
+//#include "debug.h"
