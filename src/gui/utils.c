@@ -61,3 +61,19 @@ Rectangle lg_round_to_rect(RoundRectangle rect) {
 
     return _rect;
 }
+
+/// @brief Converts a `Rectangle` to a `RoundRectangle`
+/// @note This uses `ROUNDING_DEFAULT` for the rounding value
+/// @param rect The normal rectangle
+/// @return The round rectangle
+RoundRectangle lg_rect_to_round(Rectangle rect) {
+    RoundRectangle _rect = {
+        rect.x,
+        rect.y,
+        rect.width,
+        rect.height,
+        ROUNDING_DEFAULT
+    };
+
+    return _rect;
+}

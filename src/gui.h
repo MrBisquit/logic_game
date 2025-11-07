@@ -1,5 +1,7 @@
 #pragma once
 
+#include "gui/components/components.h"
+
 // This may seem really dumb, but there will be another layer on top of RayLib
 //
 // This is a good thing, especially for things such as text, as it allows me
@@ -57,6 +59,7 @@ int lg_rand(int from, int to);
 bool lg_rect_overlap(Rectangle a, Rectangle b);
 bool lg_point_in_rect(Vector2 point, Rectangle rect);
 Rectangle lg_round_to_rect(RoundRectangle rect);
+RoundRectangle lg_rect_to_round(Rectangle rect);
 
 // Individual UI elements
 void lg_draw_text(const char* text, int posX, int posY, int fontSize, Color color);

@@ -109,6 +109,9 @@ int main(int argc, char* argv[]) {
         lg_button_t button = lg_generate_button(button_rect, lg_generate_text("Test", 15));
         lg_draw_button(button, false);
 
+        lg_draw_overlay();
+        lg_draw_popup(GetScreenWidth() / 2, GetScreenHeight() / 2);
+
         EndDrawing();
     }
 
